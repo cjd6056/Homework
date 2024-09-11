@@ -1,3 +1,6 @@
+// AERSP 424 HW 1, Problem 2
+// Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+
 #include <stdio.h>
 
 #define MAX_GROSS_WEIGHT 2950.0
