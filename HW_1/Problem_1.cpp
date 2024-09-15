@@ -3,6 +3,7 @@
 
 #include <stdio.h>
 
+// Using compiler flags of a preprocessor directive
 #define MAX_GROSS_WEIGHT 2950.0
 #define FORWARD_CG_LIMIT 82.1
 #define AFT_CG_LIMIT 84.7
@@ -63,7 +64,7 @@ int main() {
     printf("Enter the baggage moment arm (inches): ");
     scanf("%lf", &baggage_moment_arm);
     
-    // Calculations
+    // Calculations (Weights & Moments)
     double front_seat_total_weight = 0.0;
     double front_seat_moment = 0.0;
     for (int i = 0; i < front_occupants; i++) {
