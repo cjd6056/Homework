@@ -1,4 +1,4 @@
-// AERSP 424 HW 1, Problem 3
+// AERSP 424 HW 1, Problem 4
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
 #include <iostream>
@@ -10,114 +10,131 @@
 using AirportPair = std::pair<std::string, std::string>;
 using DistanceMap = std::map<AirportPair, int>;
 
+// Create a global DistanceMap to be used by the Plane class
+DistanceMap flightDistances = {
+    {{"SCE", "PHL"}, 160},  // 160-mile flight between SCE and PHL
+    {{"SCE", "ORD"}, 640},  // 640-mile flight between SCE and ORD
+    {{"SCE", "EWR"}, 220}   // 220-mile flight between SCE and EWR
+};
+
+// Plane class definition
 class Plane {
 private:
-    double pos;            // Position of the plane
-    double vel;            // Velocity of the plane
-    double distance;       // Distance to be traveled between origin and destination
-    bool at_SCE;           // Whether the plane is at SCE (Specific Checkpoint or Condition)
-    std::string origin;    // Origin of the flight
-    std::string destination; // Destination of the flight
-    DistanceMap distances; // Container to store distances between airports
+    double pos;             // position of the plane
+    double vel;             // velocity of the plane
+    double distance;        // distance between origin and destination
+    bool at_SCE;            // boolean indicating if the plane is at SCE
+    std::string origin;     // origin airport code
+    std::string destination;// destination airport code
+
+    // Helper function to calculate the distance between origin and destination
+    double getDistanceBetweenAirports(const std::string& from, const std::string& to) {
+        auto it = flightDistances.find({from, to});
+        if (it != flightDistances.end()) {
+            return it->second;
+        }
+        // If not found in the order from->to, check to->from (assuming round-trip distance)
+        it = flightDistances.find({to, from});
+        if (it != flightDistances.end()) {
+            return it->second;
+        }
+        return 0.0; // default distance if no match found
+    }
 
 public:
     // Constructor
     Plane(const std::string& from, const std::string& to)
-        : pos(0.0), vel(0.0), distance(0.0), at_SCE(false), origin(from), destination(to) {
-
-        // Initialize distances map with some example values
-        distances[{"SCE", "PHL"}] = 160; // 160-mile flight between SCE and PHL
-        distances[{"SCE", "ORD"}] = 640; // 640-mile flight between SCE and ORD
-        distances[{"SCE", "EWR"}] = 220; // 220-mile flight between SCE and EWR
-
-        // Set distance based on the origin and destination
-        distance = getDistance(origin, destination);
-
-        // Print the memory address of the object
+        : origin(from), destination(to), pos(0), vel(0), at_SCE(true) 
+    {
+        distance = getDistanceBetweenAirports(from, to);
         std::cout << "Plane Created at " << this << std::endl;
     }
 
     // Destructor
-    ~Plane() {
+    ~Plane() 
+    {
         std::cout << "Plane Destroyed" << std::endl;
     }
 
-    // Getter for pos
-    double getPos() const {
+    // Getter for position
+    double getPos() const 
+    {
         return pos;
     }
 
     // Getter for origin
-    std::string getOrigin() const {
+    std::string getOrigin() const 
+    {
         return origin;
     }
 
     // Getter for destination
-    std::string getDestination() const {
+    std::string getDestination() const 
+    {
         return destination;
     }
 
     // Getter for at_SCE
-    bool getAtSCE() const {
+    bool isAtSCE() const 
+    {
         return at_SCE;
     }
 
-    // Getter for vel
-    double getVel() const {
+    // Getter and Setter for velocity
+    double getVel() const 
+    {
         return vel;
     }
 
-    // Setter for vel
-    void setVel(double newVel) {
-        vel = newVel;
-    }
-
-    // Function to get the distance between two airports
-    int getDistance(const std::string& from, const std::string& to) const {
-        AirportPair pair = {from, to};
-        auto it = distances.find(pair);
-        if (it != distances.end()) {
-            return it->second;
-        }
-        return -1; // Return -1 if the distance is not found
-    }
-
-    // Function to operate the plane (simulate movement)
-    void operate(double dt) {
-        if (dt < 0) dt = 0; // Make sure dt is non-negative
-
-        double traveledDistance = vel * dt;
-
-        // Update position and ensure it doesn't go negative
-        pos += traveledDistance;
-        if (pos > distance) {
-            pos = distance; // Plane has reached the destination
-        }
-
-        // If plane reaches the destination (at SCE or not), update `at_SCE`
-        if (pos == distance) {
-            at_SCE = true;
+    void setVel(double newVel) 
+    {
+        if (newVel < 0) {
+            vel = 0; // Prevent negative velocity
         } else {
-            at_SCE = false;
+            vel = newVel;
+        }
+    }
+
+    // Function to simulate the operation of the plane
+    void operate(double dt) 
+    {
+        if (dt < 0) {
+            dt = 0;  // Prevent negative time
+        }
+        
+        // Update the position based on velocity and time delta (dt)
+        pos += vel * dt;
+
+        // If position exceeds the total distance, set pos to the distance and at_SCE to false
+        if (pos >= distance) {
+            pos = distance;
+            at_SCE = false;  // Plane has reached the destination
         }
 
-        // Output plane status
-        std::cout << "Operating plane for " << dt << " seconds.\n";
-        std::cout << "Current position: " << pos << " miles out of " << distance << std::endl;
-        std::cout << "At SCE: " << (at_SCE ? "Yes" : "No") << std::endl;
+        // Print current state
+        std::cout << "Operating: Position = " << pos << " miles, Velocity = " << vel
+                  << " miles/sec, at_SCE = " << (at_SCE ? "true" : "false") << std::endl;
     }
 };
 
 // Main function for testing
-int main() {
-    // Create an instance of Plane
-    Plane myPlane("SCE", "EWR");
+int main() 
+{
+    // Create a plane from SCE to ORD
+    Plane myPlane("SCE", "ORD");
 
-    // Set velocity and operate the plane
-    myPlane.setVel(500.0); // Assume velocity is 500 miles/hour
-    myPlane.operate(1.0);  // Operate the plane for 1 second
-    myPlane.operate(0.5);  // Operate the plane for another 0.5 seconds
+    // Set velocity
+    myPlane.setVel(200); // 200 miles per second (example)
 
-    // Plane object will be destroyed at the end of the scope
+    // Operate the plane for 2 seconds
+    myPlane.operate(2.0);
+
+    // Operate the plane for another 3 seconds
+    myPlane.operate(3.0);
+
+    // Print out the current state of the plane
+    std::cout << "Plane is at " << myPlane.getPos() << " miles." << std::endl;
+
+    // Destructor will be called automatically when the object goes out of scope
     return 0;
 }

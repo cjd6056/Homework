@@ -12,6 +12,8 @@ using DistanceMap = std::map<AirportPair, int>;
 
 int main() {
     // Create a map to store distances between airport pairs
+    // Maps are associative containers that store elements in a mapped fashion.
+    // However, no two mapped values can have the same key values
     DistanceMap flightDistances;
 
     // Insert flight distances into the map
