@@ -1,6 +1,8 @@
 // AERSP 424 HW 1, Problem 7
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
+
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -150,8 +152,13 @@ public:
     }
 };
 
+
 // Main function for testing
-int main() {
+int main() 
+
+{
+
+std::cout << "Question 7";
     // Create two pilots
     Pilot pilot1("Robin Olds");
     Pilot pilot2("Amelia Earheart");
@@ -176,7 +183,8 @@ int main() {
     Pilot* nextPilot = &pilot2;
 
     int currentTime = 0;
-    for (int i = 0; i < maxIterations; ++i) {
+    for (int i = 0; i < maxIterations; ++i) 
+    {
         std::cout << "Pilot " << currentPilot->getName() << " (Address: " << currentPilot 
                   << ") is controlling the plane (Address: " << currentPilot->myPlane << ")" << std::endl;
 
