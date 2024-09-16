@@ -155,8 +155,8 @@ public:
 // Main function for testing
 int main() {
     // Create two pilots
-    Pilot pilot1("John Doe");
-    Pilot pilot2("Jane Smith");
+    Pilot pilot1("Robin Olds");
+    Pilot pilot2("Amelia Earheart");
 
     // Create a plane using a shared pointer
     auto myPlane = std::make_shared<Plane>("SCE", "ORD");
