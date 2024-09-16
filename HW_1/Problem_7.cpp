@@ -158,7 +158,8 @@ int main()
 
 {
 
-std::cout << "Question 7";
+std::cout << "Question 7...\n";
+
     // Create two pilots
     Pilot pilot1("Robin Olds");
     Pilot pilot2("Amelia Earheart");
