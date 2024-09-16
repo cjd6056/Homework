@@ -137,7 +137,8 @@ std::string Pilot::get_name() const {
 }
 
 // Main function (Questions 2-8)
-int main() {
+int main() 
+{
     // Questions 2 - 5
     {
         std::cout << "\n------ Questions 2 - 5 ------" << std::endl;
@@ -220,4 +221,5 @@ int main() {
         Pilot* pilot2 = new Pilot("Bravo", planePtr_old);
 
         // Set speed of the airplane
+	}
 	}

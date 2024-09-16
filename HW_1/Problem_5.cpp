@@ -2,40 +2,37 @@
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
 #include <iostream>
+#include <iomanip> // for std::setprecision
 #include <map>
 #include <string>
 #include <utility> // for std::pair
-#include <cstdlib> // for rand()
-#include <ctime>   // for time()
 
-// Define a type alias for easier use of map with pair of strings
 using AirportPair = std::pair<std::string, std::string>;
 using DistanceMap = std::map<AirportPair, int>;
 
-// Create a global DistanceMap to be used by the Plane class
-DistanceMap flightDistances = {
-    {{"SCE", "PHL"}, 160},  // 160-mile flight between SCE and PHL
-    {{"SCE", "ORD"}, 640},  // 640-mile flight between SCE and ORD
-    {{"SCE", "EWR"}, 220}   // 220-mile flight between SCE and EWR
+DistanceMap flightDistances = 
+{
+    {{"SCE", "PHL"}, 160},
+    {{"SCE", "ORD"}, 640},
+    {{"SCE", "EWR"}, 220}
 };
 
-// Plane class definition
 class Plane {
 private:
-    double pos;             // position of the plane
-    double vel;             // velocity of the plane
-    double distance;        // distance between origin and destination
-    bool at_SCE;            // boolean indicating if the plane is at SCE
-    std::string origin;     // origin airport code
-    std::string destination;// destination airport code
+    double pos;
+    double vel;
+    double distance;
+    std::string origin;
+    std::string destination;
 
     // Helper function to calculate the distance between origin and destination
-    double getDistanceBetweenAirports(const std::string& from, const std::string& to) {
+    double getDistanceBetweenAirports(const std::string& from, const std::string& to) 
+    
+    {
         auto it = flightDistances.find({from, to});
         if (it != flightDistances.end()) {
             return it->second;
         }
-        // If not found in the order from->to, check to->from (assuming round-trip distance)
         it = flightDistances.find({to, from});
         if (it != flightDistances.end()) {
             return it->second;
@@ -44,122 +41,107 @@ private:
     }
 
 public:
-    // Constructor
     Plane(const std::string& from, const std::string& to)
-        : origin(from), destination(to), pos(0), vel(0), at_SCE(true) 
+        : origin(from), destination(to), pos(0), vel(0) 
     {
         distance = getDistanceBetweenAirports(from, to);
+        
+        std::cout << "-----Question 5-----\n";  
         std::cout << "Plane Created at " << this << std::endl;
     }
 
-    // Destructor
     ~Plane() 
     {
-        std::cout << "Plane Destroyed" << std::endl;
+        std::cout << "Plane Destroyed." << std::endl;
+            std::cout << "-----Question 5-----\n\n";  
     }
 
-    // Getter for position
     double getPos() const 
     {
         return pos;
     }
 
-    // Getter for origin
+    void setVel(double newVel) 
+    {
+        vel = newVel;
+    }
+
+    void operate(double dt) 
+    {
+        if (pos < distance) {
+            pos += vel * dt / 3600.0; // Convert velocity from mph to miles per second
+            if (pos > distance) {
+                pos = distance; // Cap the position at the destination
+            }
+        }
+    }
+
+    bool hasArrived() const 
+    {
+        return pos >= distance;
+    }
+
     std::string getOrigin() const 
     {
         return origin;
     }
 
-    // Getter for destination
     std::string getDestination() const 
     {
         return destination;
     }
 
-    // Getter for at_SCE
-    bool isAtSCE() const 
+    void swapLeg() 
     {
-        return at_SCE;
+        std::swap(origin, destination);
+        pos = 0;
+        distance = getDistanceBetweenAirports(origin, destination); // Update distance for the new leg
     }
-
-    // Getter and Setter for velocity
-    double getVel() const 
-    {
-        return vel;
-    }
-
-    void setVel(double newVel) 
-    {
-        if (newVel < 0) {
-            vel = 0; // Prevent negative velocity
-        } else {
-            vel = newVel;
-        }
-    }
-
-    // Function to simulate the operation of the plane
-    void operate(double dt) 
-{
-    if (dt < 0) {
-        dt = 0;  // Prevent negative time
-    }
-
-    // Update the position based on velocity and time delta (dt)
-    if (pos < distance) {
-        pos += vel * dt;
-    } else {
-        // If we've reached the destination
-        if (destination == "SCE") {
-            if (at_SCE) {
-                // Reset position and swap origin/destination
-                std::swap(origin, destination);
-                pos = 0.0;
-                std::cout << "Plane has reached " << destination << ". Swapping for the next leg!" << std::endl;
-            }
-        } else {
-            at_SCE = false;
-        }
-    }
-
-    // Print the current state of the plane
-    std::cout << "Operating: Position = " << pos << " miles, Velocity = " << vel
-              << " miles/sec, at_SCE = " << (at_SCE ? "true" : "false") << std::endl;
-}
-
 };
 
-// Main function for testing
+// Main function for simulation
 int main() 
 {
-    // Create a plane from SCE to ORD
-    Plane myPlane("SCE", "ORD");
+    // Create a plane from SCE to PHL
+    Plane myPlane("SCE", "PHL");
 
-    // Set velocity to something between 400-500 mph, converting it to miles per second
-    myPlane.setVel(450.0 / 3600.0); // 450 miles per hour = 0.125 miles per second
+    // Set velocity to 450 mph
+    myPlane.setVel(450.0);
 
-    // Pick a timestep between 10 and 100 seconds
-    double timestep = 15.0; // 15 seconds
+    // Set timestep to 15 seconds
+    int timestep = 15; // seconds
 
-    // Choose a maximum number of iterations between 1000 and 2000
-    int maxIterations = 1000;
-    
+    // Max iterations for the loop (between 1000 to 2000)
+    int maxIterations = 1500;
+
     int currentTime = 0;
-    for (int i = 0; i < maxIterations; ++i) {
+
+    // Fixed-point output formatting
+    std::cout << std::fixed << std::setprecision(3);
+
+    for (int i = 0; i < maxIterations; ++i) 
+    {
+        // Operate the plane for the timestep
         myPlane.operate(timestep);
         currentTime += timestep;
 
-        // Print the current position at each timestep
+        // Print the current time and position
         std::cout << "Time: " << currentTime << " seconds, Position: " 
-                  << myPlane.getPos() << " miles." << std::endl;
+        << myPlane.getPos() << " miles." << std::endl;
 
-        // Check if the plane has reached its destination
-        if (!myPlane.isAtSCE()) {
-            std::cout << "Plane from " << myPlane.getOrigin() << " to " 
-                      << myPlane.getDestination() << " has been completed. On to the next leg!" << std::endl;
-            break;
-        }
+        // Check if the plane has arrived at the destination
+         if (myPlane.hasArrived()) 
+         {
+                std::cout << "Navigation from " << myPlane.getOrigin() << " to " 
+            << myPlane.getDestination() << " has been completed. On to the next leg!" << std::endl;
+            // Swap the legs for the next trip
+            myPlane.swapLeg();
+         }
     }
 
-    // Destructor will be called automatically when the object goes out of scope
+    // Plane destruction message
+    std::cout << "Plane should get destroyed now!" << std::endl;
+
+
     return 0;
 }
