@@ -1,6 +1,8 @@
 // AERSP 424 HW 1, Problem 5
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
+// Note: Really this is problems 2 thru 5
+
 #include <iostream>
 #include <iomanip> // for std::setprecision
 #include <map>

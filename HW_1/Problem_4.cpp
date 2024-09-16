@@ -1,6 +1,7 @@
 // AERSP 424 HW 1, Problem 4
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
+// Goal: Implement functions from Problem 3...
 #include <iostream>
 #include <map>
 #include <string>
@@ -120,21 +121,10 @@ public:
 // Main function for testing
 int main() 
 {
-    // Create a plane from SCE to ORD
-    Plane myPlane("SCE", "ORD");
+    // Print out questions #
+    std::cout << "-----Question 4-----";
+    std::cout << "\nImplementing Functions from Problem 3...\n\n";
 
-    // Set velocity
-    myPlane.setVel(200); // 200 miles per second (example)
 
-    // Operate the plane for 2 seconds
-    myPlane.operate(2.0);
-
-    // Operate the plane for another 3 seconds
-    myPlane.operate(3.0);
-
-    // Print out the current state of the plane
-    std::cout << "Plane is at " << myPlane.getPos() << " miles." << std::endl;
-
-    // Destructor will be called automatically when the object goes out of scope
     return 0;
 }
