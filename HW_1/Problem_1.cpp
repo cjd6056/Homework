@@ -107,6 +107,10 @@ int main() {
             gross_weight = empty_weight + front_seat_total_weight + rear_seat_total_weight + fuel_weight + baggage_weight;
             total_moment = empty_weight_moment + front_seat_moment + rear_seat_moment + fuel_moment + baggage_moment;
             cg_location = total_moment / gross_weight;
+    //The airplane design limits are as follow:
+// • Maximum allowable gross weight: 2950 lbs.
+// • Forward C.G. limit: 82.1 inches & Aft C.G. limit: 84.7 inches
+// • Use a decimal precision of 0.01 lbs. when adding or draining fuel
         }
         
         printf("Adjusted Gross Weight: %.2lf lbs\n", gross_weight);
