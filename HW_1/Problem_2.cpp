@@ -1,6 +1,14 @@
 // AERSP 424 HW 1, Problem 2
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
+/*
+Prompt: Given a picture of a map around the University Park airport, design a C++ container that stores
+information shown in the picture, specifically:
+• There are 160-mile flights between “SCE” and “PHL”.
+• There are 640-mile flights between “SCE” and “ORD”.
+• There are 220-mile flights between “SCE” and “EWR”
+*/
+
 #include <iostream>
 #include <map>
 #include <string>
@@ -21,9 +29,11 @@ int main() {
     flightDistances[{"SCE", "ORD"}] = 640; // 640-mile flight between SCE and ORD
     flightDistances[{"SCE", "EWR"}] = 220; // 220-mile flight between SCE and EWR
 
-    // Output the distances (this is typically done in lexicographical order)
+    // Output the distances (Note: this is typically done in lexicographical order)
     std::cout << "Flight Distances:" << std::endl;
-    for (const auto& flight : flightDistances) {
+    for (const auto& flight : flightDistances) 
+    
+    {
         std::cout << flight.first.first << " to " << flight.first.second << " is " 
           << flight.second << " miles." << std::endl;
     }
