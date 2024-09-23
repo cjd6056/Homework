@@ -1,6 +1,21 @@
 // AERSP 424 HW 1, Problem 3
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+//NOTE: This “Question” is just to setup the class, no “real” functionality to test (yet).
+/* Prompt 3
+Create a class named “Plane” with the following class members.
+Private members:
+• double variables named “pos”, “vel”, and “distance”.
+• boolean variable named “at_SCE”.
+• string variables named “origin” and “destination”.
+• The container from Question 2 (see Q2)
 
+Public members:
+• A constructor that takes in two strings “from” and “to” as input.
+• A deconstructor.
+• A function named “operate” with a double variables “dt” as an input, and return nothing.
+get functions for “pos”, “origin”, “destination”, and “at_SCE” variables and get/set functions for “vel”
+variable.
+*/
 
 #include <iostream>
 #include <map>

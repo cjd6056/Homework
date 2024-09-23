@@ -2,6 +2,20 @@
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
 // Note: Really this is problems 2 thru 5
+/*
+Pick a flight speed between 400-500 mph. In your main function, instantiate an object from the
+“Plane” class written in Question 3 & 4.
+• This object represents an airplane of the chosen pair of arrival & departure flights.
+• Use the set function for “vel” to set the speed of the airplane.
+• Then ...
+o pick a timestep between [10, 100],
+o choose the maximum number of iterations between [1000, 2000], and
+o create an iterative statement that call the “operate” function member for each
+airplane object with timestep being an input
+o Print out the airplane position at each timestep until the maximum number of
+iterations is reached
+
+*/
 
 #include <iostream>
 #include <iomanip> // for std::setprecision
@@ -111,7 +125,7 @@ int main()
     myPlane.setVel(450.0);
 
     // Set timestep to 15 seconds
-    int timestep = 15; // seconds
+    int timestep = 60; // seconds (60 for timesteps in mins)
 
     // Max iterations for the loop (between 1000 to 2000)
     int maxIterations = 1500;
