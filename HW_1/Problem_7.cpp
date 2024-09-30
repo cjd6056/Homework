@@ -22,7 +22,7 @@ address of the plane that they are controlling.
 #include <iostream>
 #include <map>
 #include <string>
-#include <utility> // for std::pair
+#include <utility> // for standard library pair
 #include <vector>  // for std::vector
 
 using AirportPair = std::pair<std::string, std::string>;
@@ -40,10 +40,10 @@ class Plane;
 // Pilot class definition
 class Pilot 
 {
-private:
+private: //private member
     std::string name;
 
-public:
+public:  // public members
     Pilot(const std::string& pilotName) 
         : name(pilotName), myPlane(nullptr) 
     {

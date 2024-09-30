@@ -11,8 +11,8 @@ information shown in the picture, specifically:
 */
 
 #include <iostream>
-#include <map>
-#include <string>
+#include <map> // for using map containers
+#include <string> // self explanatory
 #include <utility> // for std::pair
 
 // Defining using type alias was for easier use of map with pair of strings
