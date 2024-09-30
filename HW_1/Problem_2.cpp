@@ -15,11 +15,12 @@ information shown in the picture, specifically:
 #include <string>
 #include <utility> // for std::pair
 
-// Define a type alias for easier use of map with pair of strings
+// Defining using type alias was for easier use of map with pair of strings
 using AirportPair = std::pair<std::string, std::string>;
-using DistanceMap = std::map<AirportPair, int>;
+using DistanceMap = std::map<AirportPair, int>; //map associated with integer distances
 
-int main() {
+int main() 
+{
     // Create a map to store distances between airport pairs
     // Maps are associative containers that store elements in a mapped fashion.
     // However, no two mapped values can have the same key values
@@ -36,7 +37,7 @@ int main() {
     
     {
         std::cout << flight.first.first << " to " << flight.first.second << " is " 
-          << flight.second << " miles." << std::endl;
+          << flight.second << " miles." << std::endl; // Printing out flight map
     }
 
     return 0;
