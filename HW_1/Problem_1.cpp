@@ -68,14 +68,16 @@ int main() {
     // Calculations (Weights & Moments)
     double front_seat_total_weight = 0.0;
     double front_seat_moment = 0.0;
-    for (int i = 0; i < front_occupants; i++) {
+    for (int i = 0; i < front_occupants; i++) 
+    {
         front_seat_total_weight += front_seat_weights[i];
         front_seat_moment += front_seat_weights[i] * front_moment_arm;
     }
     
     double rear_seat_total_weight = 0.0;
     double rear_seat_moment = 0.0;
-    for (int i = 0; i < rear_occupants; i++) {
+    for (int i = 0; i < rear_occupants; i++) 
+    {
         rear_seat_total_weight += rear_seat_weights[i];
         rear_seat_moment += rear_seat_weights[i] * rear_moment_arm;
     }
@@ -95,11 +97,13 @@ int main() {
     printf("Initial CG Location: %.2lf inches\n", cg_location);
     
     // Check limits
-    if (gross_weight > MAX_GROSS_WEIGHT || cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT) {
+    if (gross_weight > MAX_GROSS_WEIGHT || cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT) 
+    {
         printf("Gross weight or CG out of limits.\n");
         
         double adjustment_fuel_weight = fuel_weight;
-        while ((gross_weight > MAX_GROSS_WEIGHT || cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT) && adjustment_fuel_weight >= 0) {
+        while ((gross_weight > MAX_GROSS_WEIGHT || cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT) && adjustment_fuel_weight >= 0) 
+        {
             adjustment_fuel_weight -= 0.01;  // Reduce fuel weight by 0.01 lbs
             
             fuel_weight = adjustment_fuel_weight;
@@ -117,9 +121,11 @@ int main() {
         printf("Adjusted Gross Weight: %.2lf lbs\n", gross_weight);
         printf("Adjusted CG Location: %.2lf inches\n", cg_location);
         printf("Adjusted fuel weight: %.2lf lbs (%.2lf gallons)\n", adjustment_fuel_weight, adjustment_fuel_weight / usable_fuel_weight_per_gallon);
-    } else {
+    } 
+        else 
+    {
         printf("Gross weight and CG are within limits.\n");
     }
     
-    return 0;
+        return 0; //this essentially tells main that program is running correctly
 }
