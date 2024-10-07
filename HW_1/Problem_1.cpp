@@ -100,7 +100,7 @@ int main()
     {
         printf("WARNING: Gross weight exceeds maximum limit!\n");
 
-        // Calculate how much fuel can be removed
+        // Calculate how much fuel can be removed to satisfy Gross Weight requirement
         double adjustment_fuel_weight = fuel_weight;
         while (gross_weight > MAX_GROSS_WEIGHT && adjustment_fuel_weight > 0) 
         {
@@ -114,15 +114,26 @@ int main()
             total_moment = total_moment_without_fuel + fuel_moment;
             cg_location = total_moment / gross_weight;
         }
-
+      
+      // Useful for debugging!
+    
+    if (cg_location >= FORWARD_CG_LIMIT && cg_location <= AFT_CG_LIMIT && gross_weight <= MAX_GROSS_WEIGHT)
+    {
+        printf("Adjusted Gross Weight: %.2lf lbs\n", gross_weight);
         printf("Adjusted CG Location: %.2lf inches\n", cg_location);
         printf("Adjusted fuel weight: %.2lf lbs (%.2lf gallons)\n", adjustment_fuel_weight, adjustment_fuel_weight / usable_fuel_weight_per_gallon);
+        printf("Final Adjustments successful. CG and Gross weight should now be within limits... Ready for takeoff!\n");
+
+    }
+        
+      
+      
     } 
 
     // Check CG after gross weight adjustment
     if (cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT) 
     {
-        printf("WARNING: CG is out of limits after initial adjustments. We need to adjust fuel to move the CG.\n");
+        //printf("WARNING: CG is out of limits after initial adjustments. We need to adjust fuel to move the CG.\n");
 
         // Adjust the fuel weight gradually to bring CG within limits
         double adjustment_fuel_weight = fuel_weight;
@@ -156,8 +167,8 @@ int main()
         }
 
         // Final CG and weight after adjustment
-        printf("\nFinal Adjusted Gross Weight after CG adjustment: %.2lf lbs\n", gross_weight);
-        printf("Final Adjusted CG Location after CG adjustment: %.2lf inches\n", cg_location);
+        printf("\nFinal Adjusted Gross Weight: %.2lf lbs\n", gross_weight);
+        printf("Final Adjusted CG Location: %.2lf inches\n", cg_location);
 
         if (cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT)
         {
@@ -165,13 +176,11 @@ int main()
         }
         else
         {
-            printf("Final Adjustments successful. CG is now within limits.\n");
+            printf("Final Adjustments successful. CG and Gross weight should now be within limits... Ready for takeoff!\n");
         }
     } 
-    else 
-    {
-        printf("\nGross weight and CG are within limits.\n");
-    }
+   
+
 
     return 0; // Indicate successful execution
 }
