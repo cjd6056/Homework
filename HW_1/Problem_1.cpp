@@ -1,7 +1,3 @@
-// AERSP 424 HW 1, Problem 1
-// Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
-// Code looks good. CAO 1 Oct
-
 #include <stdio.h>
 #include <math.h> // Include math library for absolute value function
 #define MAX_GROSS_WEIGHT 2950.0
@@ -102,7 +98,7 @@ int main()
     // Check limits
     if (gross_weight > MAX_GROSS_WEIGHT) 
     {
-        printf("Gross weight exceeds maximum limit.\n");
+        printf("WARNING: Gross weight exceeds maximum limit!\n");
 
         // Calculate how much fuel can be removed
         double adjustment_fuel_weight = fuel_weight;
@@ -119,7 +115,6 @@ int main()
             cg_location = total_moment / gross_weight;
         }
 
-        printf("Final Adjusted Gross Weight: %.2lf lbs\n", gross_weight);
         printf("Adjusted CG Location: %.2lf inches\n", cg_location);
         printf("Adjusted fuel weight: %.2lf lbs (%.2lf gallons)\n", adjustment_fuel_weight, adjustment_fuel_weight / usable_fuel_weight_per_gallon);
     } 
@@ -127,31 +122,55 @@ int main()
     // Check CG after gross weight adjustment
     if (cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT) 
     {
-        printf("CG is out of limits after adjustments. We need to adjust fuel to move the CG.\n");
+        printf("WARNING: CG is out of limits after initial adjustments. We need to adjust fuel to move the CG.\n");
 
-        // Determine if we need to add or remove fuel to bring CG within limits
-        double original_fuel_weight = fuel_weight; // Keep track of the original fuel weight
-        double fuel_needed_to_move_cg = 0.0;
+        // Adjust the fuel weight gradually to bring CG within limits
+        double adjustment_fuel_weight = fuel_weight;
+        while ((cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT)) 
+        {
+            // If CG is too far forward
+            if (cg_location < FORWARD_CG_LIMIT) 
+            {
+                adjustment_fuel_weight -= 0.01; // Reduce fuel to shift CG aft
+            } 
+            // If CG is too far aft
+            else if (cg_location > AFT_CG_LIMIT) 
+            {
+                adjustment_fuel_weight += 0.01; // Add fuel to shift CG forward
+            }
 
-        if (cg_location < FORWARD_CG_LIMIT) 
-        {
-            // Calculate how much fuel is needed to bring CG above forward limit
-            fuel_needed_to_move_cg = (FORWARD_CG_LIMIT - cg_location) * gross_weight / fuel_tank_moment_arm;
-            fuel_needed_to_move_cg = fmax(0.0, fuel_needed_to_move_cg); // Ensure it's not negative
-        } 
-        else if (cg_location > AFT_CG_LIMIT) 
-        {
-            // Calculate how much fuel is needed to bring CG below aft limit
-            fuel_needed_to_move_cg = (cg_location - AFT_CG_LIMIT) * gross_weight / fuel_tank_moment_arm;
-            fuel_needed_to_move_cg = fmax(0.0, fuel_needed_to_move_cg); // Ensure it's not negative
+            // Recalculate weights and moments after adjusting fuel
+            fuel_weight = adjustment_fuel_weight;
+            fuel_moment = fuel_weight * fuel_tank_moment_arm;
+
+            gross_weight = gross_weight_without_fuel + fuel_weight;
+            total_moment = total_moment_without_fuel + fuel_moment;
+            cg_location = total_moment / gross_weight;
+
+            // Check if gross weight exceeds the maximum allowed
+            if (gross_weight > MAX_GROSS_WEIGHT) 
+            {
+                printf("WARNING: Unable to adjust CG without exceeding maximum gross weight.\n");
+                break;
+            }
         }
 
-        printf("Fuel needed to bring CG within limits: %.2lf lbs\n", fuel_needed_to_move_cg);
-        printf("This corresponds to %.2lf gallons of fuel (without capping to usable fuel).\n", fuel_needed_to_move_cg / usable_fuel_weight_per_gallon);
+        // Final CG and weight after adjustment
+        printf("\nFinal Adjusted Gross Weight after CG adjustment: %.2lf lbs\n", gross_weight);
+        printf("Final Adjusted CG Location after CG adjustment: %.2lf inches\n", cg_location);
+
+        if (cg_location < FORWARD_CG_LIMIT || cg_location > AFT_CG_LIMIT)
+        {
+            printf("WARNING: CG still out of limits after fuel adjustment. Further redistribution is needed.\n");
+        }
+        else
+        {
+            printf("Final Adjustments successful. CG is now within limits.\n");
+        }
     } 
     else 
     {
-        printf("Gross weight and CG are within limits.\n");
+        printf("\nGross weight and CG are within limits.\n");
     }
 
     return 0; // Indicate successful execution
