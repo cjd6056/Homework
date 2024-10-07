@@ -1,3 +1,57 @@
+//AERSP 424 HW 1, Problem 2
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+
+/* Prompt:
+Assuming you are about to fly a plane that carries that following items:
+(1) its own empty weight,
+(2) baggage,
+(3) front seat passengers,
+(4) rear seat passengers, and
+(5) usable fuel.
+Each item contributes to the gross weight and the Center of Gravity (CG) location of the airplane.
+Write a program to receive information below from the user and store them in appropriate variables
+(i.e., the user should “input” the values to the code via the terminal)
+• Airplane empty weight (pounds)
+• Airplane empty-weight moment (pounds-inches)
+• The number of front seat occupants
+• Weight of each front seat occupant (pounds)
+• Front seat moment arm (inches)
+• The number of rear seat occupants
+• Weight of each rear seat occupant (pounds)
+• Rear seat moment arm (inches)
+• The number of gallons of usable fuel (gallons)
+• Usable fuel weights per gallon (pounds)
+• Fuel tank moment arm (inches)
+• Baggage weight (pounds)
+• Baggage moment arm (inches)
+Then, check if the gross weight and the CG location are within the airplane design limits using the
+moment equation.
+Moment = distance ∗ force
+If not, calculate the amount of fuel that need to be added or drained to meet the limits. Also, print
+out the new value of the gross weight and the CG location.
+The airplane design limits are as follow:
+• Maximum allowable gross weight: 2950 lbs.
+• Forward C.G. limit: 82.1 inches & Aft C.G. limit: 84.7 inches
+• Use a decimal precision of 0.01 lbs. when adding or draining fuel.
+NOTE: All calculations must be done by a computer, e.g., no hard-coded number other than the ones
+provided. You may use the following numbers to check your result (but the code needs to be able to
+receive user inputs).
+• Airplane empty weight (pounds): 2050
+• Airplane empty-weight moment (pounds-inches): 155400
+• The number of front seat occupants: 2
+• Weight of each front seat occupant (pounds): 180, 150
+• Front seat moment arm (inches): 85
+• The number of rear seat occupants: 2
+• Weight of each rear seat occupant (pounds): 160, 170
+• Rear seat moment arm (inches): 121
+• The number of gallons of usable fuel (gallons): 44
+• Usable fuel weights per gallon (pounds): 6
+• Fuel tank moment arm (inches): 75
+• Baggage weight (pounds): 10
+• Baggage moment arm (inches): 140
+*/
+
+
 #include <stdio.h>
 #include <math.h> // Include math library for absolute value function
 #define MAX_GROSS_WEIGHT 2950.0
