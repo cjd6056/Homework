@@ -12,14 +12,16 @@ using AirportPair = std::pair<std::string, std::string>;
 using DistanceMap = std::map<AirportPair, int>;
 
 // Create a global DistanceMap to be used by the Plane class
-DistanceMap flightDistances = {
+DistanceMap flightDistances = 
+{
     {{"SCE", "PHL"}, 160},  // 160-mile flight between SCE and PHL
     {{"SCE", "ORD"}, 640},  // 640-mile flight between SCE and ORD
     {{"SCE", "EWR"}, 220}   // 220-mile flight between SCE and EWR
 };
 
 // Plane class definition
-class Plane {
+class Plane 
+{
 private:
     double pos;             // position of the plane
     double vel;             // velocity of the plane

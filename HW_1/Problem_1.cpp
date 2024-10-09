@@ -1,4 +1,4 @@
-//AERSP 424 HW 1, Problem 2
+//AERSP 424 HW 1, Problem 1
 //Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
 
 /* Prompt:
@@ -53,7 +53,7 @@ receive user inputs).
 
 
 #include <stdio.h>
-#include <math.h> // Include math library for absolute value function
+#include <math.h>
 #define MAX_GROSS_WEIGHT 2950.0
 #define FORWARD_CG_LIMIT 82.1
 #define AFT_CG_LIMIT 84.7

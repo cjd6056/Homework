@@ -1,7 +1,6 @@
 // AERSP 424 HW 1, Problem 5
 // Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
-
-// Note: Really this is problems 2 thru 5. Works good CAO 23 Sep
+// Note: Really this is problems 2 thru 5.
 /*
 Pick a flight speed between 400-500 mph. In your main function, instantiate an object from the
 “Plane” class written in Question 3 & 4.
@@ -33,7 +32,8 @@ DistanceMap flightDistances =
     {{"SCE", "EWR"}, 220}
 };
 
-class Plane {
+class Plane 
+{
 private:
     double pos;
     double vel;
