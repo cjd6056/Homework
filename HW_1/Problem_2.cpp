@@ -1,6 +1,5 @@
 // AERSP 424 HW 1, Problem 2
-// Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
-// Code looks good. CAO 23 Sep.
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
 
 /*
 Prompt: Given a picture of a map around the University Park airport, design a C++ container that stores

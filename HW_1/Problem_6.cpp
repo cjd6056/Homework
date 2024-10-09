@@ -1,5 +1,5 @@
 // AERSP 424 HW 1, Problem 6
-// Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
 //NOTE: This “Question” is just to setup the class, no “real” functionality to test (yet).
 /*
 Create a class “Pilot” with the following members and implementation.

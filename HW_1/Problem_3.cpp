@@ -1,5 +1,5 @@
 // AERSP 424 HW 1, Problem 3
-// Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
 // NOTE: This “Question” is just to setup the class, no “real” functionality to test (yet).
 /* Prompt 3
 Create a class named “Plane” with the following class members.
