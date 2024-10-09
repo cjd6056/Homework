@@ -1,5 +1,5 @@
 /*AERSP 424 HW 1, Problem 8
-   Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+   Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
    Prompt 8: If you write a code in Question 7 using an old C/CPP-style pointer, rewrite it using modern CPP-style
 pointer. If you write a code in Question 7 using a modern CPP-style pointer, rewrite it using an old
 C/CPP-style pointer.

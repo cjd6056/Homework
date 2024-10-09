@@ -1,5 +1,5 @@
 //AERSP 424 HW 1, Problem 1
-//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
 
 /* Prompt:
 Assuming you are about to fly a plane that carries that following items:

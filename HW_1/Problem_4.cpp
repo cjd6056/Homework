@@ -1,5 +1,5 @@
 // AERSP 424 HW 1, Problem 4
-// Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
 
 // Goal: Implement functions from Problem 3...
 #include <iostream>

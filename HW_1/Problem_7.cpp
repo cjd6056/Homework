@@ -1,5 +1,5 @@
 /* AERSP 424 HW 1, Problem 7
-   Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
    Prompt 7:
 
 Now, imagine that there are two pilots flying a plane, e.g., the Pilot-in-Command and the Co-Pilot.
