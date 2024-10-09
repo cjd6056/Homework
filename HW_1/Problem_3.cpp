@@ -1,6 +1,6 @@
 // AERSP 424 HW 1, Problem 3
-// Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
-//NOTE: This “Question” is just to setup the class, no “real” functionality to test (yet).
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
+// NOTE: This “Question” is just to setup the class, no “real” functionality to test (yet).
 /* Prompt 3
 Create a class named “Plane” with the following class members.
 Private members:
@@ -53,7 +53,7 @@ public:
     ~Plane() 
     
     {
-        //Insert Deconstructor code here
+        //Insert Destructor code here
     }
 
     // Function to operate the plane
@@ -100,7 +100,8 @@ public:
 };
 
 // Main function for testing
-int main() {
+int main() 
+{
     // Create an instance of Plane
     Plane myPlane("SCE", "EWR");
     

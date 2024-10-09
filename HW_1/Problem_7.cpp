@@ -1,5 +1,5 @@
 /* AERSP 424 HW 1, Problem 7
-   Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo
+//Authors: Conor Dowdell, Gabrielle Dowdell, Chukwu Agbo, Shanon Hyde
    Prompt 7:
 
 Now, imagine that there are two pilots flying a plane, e.g., the Pilot-in-Command and the Co-Pilot.
@@ -32,7 +32,7 @@ using DistanceMap = std::map<AirportPair, int>;
 DistanceMap flightDistances = 
 {
     {{"SCE", "PHL"}, 160},  // 160-mile flight between SCE and PHL
-    {{"PHL", "SCE"}, 160}   // 160-mile flight between PHL and SCE (round-trip)
+    {{"PHL", "SCE"}, 160}   // 160-mile flight between PHL and SCE
 };
 
 class Plane;
