@@ -8,8 +8,8 @@
       "args": [],
       "stopAtEntry": false,
       "externalConsole": true,
-      "cwd": "c:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_1",
-      "program": "c:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_1/build/Debug/outDebug",
+      "cwd": "c:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/Participation Week 6/include",
+      "program": "c:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/Participation Week 6/include/build/Debug/outDebug",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
       "setupCommands": [
