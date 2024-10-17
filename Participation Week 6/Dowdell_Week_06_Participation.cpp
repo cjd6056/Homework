@@ -5,7 +5,7 @@ Authors: Conor and Gabrielle Dowdell
 
 Please note: Although we tried to not use AI as much as possible, we did receive help from Chat GPT especially for problem solving the
 numerical integration of DCMs (our data kept diverging and was approaching infinity due to unstable integrating). Additionally, we did not want to
-download third party programs and wanted to see what we could do with just some c++ and excel
+download third party programs and wanted to see what we could do with just some c++ and excel (also needed Chat's help for outputting to excel).
 */
 
 #include <iostream>
