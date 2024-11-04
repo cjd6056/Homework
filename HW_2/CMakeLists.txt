@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.23)
+project(AERSP424_HW2)
+set(CMAKE_CXX_STANDARD 20)
+include_directories(${CMAKE_SOURCE_DIR})
+add_executable(${AERSP424_HW2} main_hw2.cpp main.cpp)

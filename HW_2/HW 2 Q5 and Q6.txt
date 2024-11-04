@@ -1,0 +1,29 @@
+Question 5: From Question 2, what issues may happen if the robot that finished the
+task is assigned a new task immediately? And what will be a potential
+solution for the issues?
+
+An issue that could arise is that the robots next to this robot could be using
+the tools required to complete a task. If this robot tried completing a new task
+immediately after finishing the previous one, it might find that there is only
+one or no tools to use. A potential solution is to have there be a delay between
+robots completing tasks. It may not be the most optimal solution, but it would 
+prevent there being a robot having no tools to use when trying to complete a task.
+
+
+Question 6: From Question 3, what issues you might obtain during the development of
+the program? What issues do you think will happen if some of the actions,
+e.g., waking up the ATC, checking the traffic pattern, entering the traffic
+pattern, diverging to another airport, etc., take time to finish? And what
+will be a potential solution for the issues?
+
+Using multiple threads in the code can lead to complications and unpredictable 
+behavior if not written carefully. Also incorrectly using mutex locks can lead to
+deadlocks in the code, meaning that threads could wait indefinitely for resources
+that are held by other threads. With different tasks taking time to finish it can 
+lead to delays for additional aircraft trying to approach the airport. In a real
+world setting, it could slow down the overall operations of the airport which is 
+frustrating for passengers. To help relieve these issues, certain tasks can be
+optimized to allow for more traffic to land at the airport. Asynchronous processing
+can also be used to allow the program to continue executing while waiting for certain
+actions to be completed, e.g., waking up the ATC, checking the traffic pattern, 
+entering the traffic pattern, diverging to another airport, etc.
