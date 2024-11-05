@@ -1,0 +1,14 @@
+[
+{
+  "directory": "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/AERSP424_HW2.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\AERSP424_HW2.dir\\src\\main_hw2.cpp.obj -c C:\\Users\\conor.CONORS-XPS-15\\OneDrive\\Desktop\\Repos\\Homework\\HW_2\\src\\main_hw2.cpp",
+  "file": "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/src/main_hw2.cpp",
+  "output": "CMakeFiles/AERSP424_HW2.dir/src/main_hw2.cpp.obj"
+},
+{
+  "directory": "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/build",
+  "command": "C:\\msys64\\ucrt64\\bin\\g++.exe  @CMakeFiles/AERSP424_HW2.dir/includes_CXX.rsp -g -std=gnu++20 -o CMakeFiles\\AERSP424_HW2.dir\\src\\main.cpp.obj -c C:\\Users\\conor.CONORS-XPS-15\\OneDrive\\Desktop\\Repos\\Homework\\HW_2\\src\\main.cpp",
+  "file": "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/src/main.cpp",
+  "output": "CMakeFiles/AERSP424_HW2.dir/src/main.cpp.obj"
+}
+]
