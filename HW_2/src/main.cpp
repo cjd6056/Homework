@@ -1,6 +1,6 @@
+// Question #4
 
-
-#include "matplot.h"
+#include <matplot/matplot.h>
 #include <cmath>
 #include <vector>
 
