@@ -1,8 +1,13 @@
-#include "matplot.h"  // This line should work if the path is set correctly in CMake
+
+
+
+
+#include "matplot/matplot.h" // Use relative path based on the include directory
 #include <cmath>
 #include <vector>
 
-int main() {
+int main() 
+{
     // Define the range and step
     std::vector<double> x;
     std::vector<double> y;
