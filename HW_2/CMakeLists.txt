@@ -7,9 +7,11 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Include the Matplot++ directory
 include_directories(
-    "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/Include/matplotplusplus/source"
-    "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/Include/matplotplusplus/source/matplot/detail"
+    "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/Include/matplotplusplus/source/matplot"
 )
 
 # Add the executable and source files
 add_executable(AERSP424_HW2 src/main.cpp src/main_hw2.cpp)
+
+# Optionally link Matplot++ library if needed
+# target_link_libraries(AERSP424_HW2 matplot)

@@ -1,8 +1,6 @@
 
 
-
-
-#include "matplot/matplot.h" // Use relative path based on the include directory
+#include "matplot.h"
 #include <cmath>
 #include <vector>
 
