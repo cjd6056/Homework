@@ -7,7 +7,8 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 # Include directories for the project
 include_directories(${CMAKE_SOURCE_DIR})
-include_directories("C:/Users/conor.CONORS-XPS-15/Downloads/matplotplusplus-1.2.1/source/matplot")
+include_directories("C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/Include")  # Include the directory for matplot.h
+include_directories("C:/Users/conor.CONORS-XPS-15/Downloads/matplotplusplus-1.2.1/source")  # Include the source directory if necessary
 
 # Add the executable and its source files
-add_executable(AERSP424_HW2 src/main_hw2.cpp src/main.cpp)
+add_executable(AERSP424_HW2 main.cpp main_hw2.cpp)
