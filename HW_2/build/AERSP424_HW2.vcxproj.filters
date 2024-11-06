@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\src\main_hw2.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2DE5BF1C-01C3-329B-A66D-F8ED98D8D216}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

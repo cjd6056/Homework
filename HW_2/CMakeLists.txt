@@ -16,4 +16,4 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 # Add the executable and source files
 add_executable(AERSP424_HW2 src/main.cpp src/main_hw2.cpp)
 #target_link_libraries(AERSP424_HW2 INTERFACE Matplot++::matplot)
-target_link_libraries(AERSP424_HW2 Matplot++::matplot)
+target_link_libraries(AERSP424_HW2 PUBLIC Matplot++::matplot)

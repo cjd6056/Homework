@@ -11,7 +11,7 @@ int main()
     std::vector<double> y;
 
     // Generate x values from -2π to 2π
-    for (double i = -2 * M_PI; i <= 2 * M_PI; i += 0.1) {
+    for (double i = -2 * 3.1415963; i <= 2 * 3.1415963; i += 0.1) {
         x.push_back(i);
         y.push_back(std::sin(i));
     }
