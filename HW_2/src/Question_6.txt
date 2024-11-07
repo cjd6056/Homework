@@ -1,0 +1,13 @@
+From Question 03, what issues you might obtain during the development of the program? What
+issues do you think will happen if some of the actions, e.g., waking up the ATC, checking the traffic
+pattern, entering the traffic pattern, diverging to another airport, etc., take time to finish? And what
+will be a potential solution for the issues?
+Note: The code is optional for this question. You can submit the discussion as a markdown file.
+HINT: https://en.wikipedia.org/wiki/Sleeping_barber_problem
+
+
+To mitigate these issues, tasks can be optimized for faster execution, and asynchronous processing can be employed. 
+By allowing certain tasks (e.g., waiting for ATC, checking the traffic pattern) to run in parallel while other actions 
+are taking place, we can reduce delays and maintain a smooth flow of operations. This approach minimizes the idle time 
+of threads, allowing the system to continue processing without unnecessary waits, similar to how the sleeping barber 
+would efficiently serve customers without idling unnecessarily.

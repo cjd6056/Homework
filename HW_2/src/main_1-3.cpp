@@ -73,6 +73,7 @@ void perform_task(int robot_id) {
 
 
 // Question 3 Functions
+// Question 3 Functions
 const int MAX_AIRCRAFT = 3;
 const int TOTAL_AIRCRAFT = 10;
 
@@ -88,44 +89,51 @@ void pilot(int id) // Function for landing aircraft
     std::unique_lock<std::mutex> lck(mtx);
     std::cout << "Aircraft #" << id << " requesting landing." << std::endl;
 
-    if (!atcTalking && aircraftInPattern < MAX_AIRCRAFT)
+    if (aircraftInPattern < MAX_AIRCRAFT)
     {
-        // If ATC is not talking and traffic pattern is not full, initiate communication
-        atcTalking = true;
+        // If traffic pattern is not full, initiate communication
         std::cout << "Aircraft #" << id << " is cleared to land." << std::endl;
-        cv.notify_one(); // Wake up ATC
+        aircraftInPattern++;
+        cv.notify_one(); // Wake up ATC after landing clearance
     }
-    else if (aircraftInPattern >= MAX_AIRCRAFT)
+    else
     {
-        // If traffic pattern is full, divert to other airports
+        // If traffic pattern is full, divert to another airport
         std::cout << "Approach pattern full. Aircraft #" << id << " redirected to another airport." << std::endl;
         std::cout << "Aircraft #" << id << " flying to another airport." << std::endl;
     }
-    aircraftInPattern++;
 }
 
 void atc() // Air traffic control function
 {
     auto startTime = std::chrono::high_resolution_clock::now();
     std::unique_lock<std::mutex> lck(mtx);
+    
     while (aircraftLanded < TOTAL_AIRCRAFT)
     {
-        cv.wait(lck, [] { return atcTalking || aircraftLanded >= TOTAL_AIRCRAFT; });
+        cv.wait(lck, [] { return aircraftInPattern > 0 || aircraftLanded >= TOTAL_AIRCRAFT; });
+
         if (aircraftLanded >= TOTAL_AIRCRAFT)
         {
-            // All aircraft have landed, exit the loop
+            break; // All aircraft have landed, exit the loop
+        }
+
+        std::this_thread::sleep_for(std::chrono::seconds(4)); // Simulating conversation time
+        std::cout << "Runway is now free." << std::endl;
+        aircraftInPattern--;
+        aircraftLanded++;
+
+        // Notify if all aircraft have landed to stop ATC
+        if (aircraftLanded == TOTAL_AIRCRAFT)
+        {
             break;
         }
-        std::this_thread::sleep_for(std::chrono::seconds(4)); // Simulating conversation
-        std::cout << "Runway is now free." << std::endl;
-        atcTalking = false;
-        aircraftInPattern--;
     }
+    
     auto endTime = std::chrono::high_resolution_clock::now();
     auto duration = std::chrono::duration_cast<std::chrono::seconds>(endTime - startTime);
     std::cout << "Duration: " << duration.count() << " seconds." << std::endl;
 }
-
 
 int main()
 {
@@ -318,11 +326,13 @@ int main()
 
         for (int i = 0; i < TOTAL_AIRCRAFT; ++i)
         {
-            aircraftThreads[i].join();
-            aircraftLanded++;
+            aircraftThreads[i].join(); // Join each aircraft thread
         }
 
-        cv.notify_one(); // Notify ATC to wake up and check if all aircraft have landed
+        // Ensure ATC knows that all aircraft have been processed
+        cv.notify_one(); // Notify ATC to process landings and finalize
+
+        // Join the ATC thread once all aircraft have landed
         atcThread.join();
 
         std::cout << "\n------ End of Question 3 ------ \n" << std::endl;
