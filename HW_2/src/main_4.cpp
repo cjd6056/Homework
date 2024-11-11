@@ -1,4 +1,9 @@
-#include "C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/third_party/matplotplusplus/source/matplot/matplot.h"
+/*
+AESP 424 HW 2, Question 4
+Authors: Conor and Gabrielle Dowdell
+*/
+
+#include <matplot/matplot.h>
 #include <vector>
 
 int main() 

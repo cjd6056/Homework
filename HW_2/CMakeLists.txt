@@ -22,8 +22,8 @@ find_package(Matplot++ REQUIRED)
 include(GNUInstallDirs)
 
 include_directories(
-    ${PROJECT_SOURCE_DIR}/include
-    ${PROJECT_SOURCE_DIR}/src
+    ${HW_2}/include
+    ${HW_2}/src
 )
 
 file(GLOB all_SRCS
