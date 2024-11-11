@@ -169,17 +169,17 @@ int main()
         };
 
         // Derived class for Pressure Sensor
-        class VelocitySensor : public Sensor
+        class AirspeedSensor : public Sensor
         {
         public:
             void gatherData() override
             {
-                std::cout << "Gathering data from Velocity Sensor." << std::endl;
+                std::cout << "Gathering data from Airspeed Sensor." << std::endl;
             }
 
             void processData() override
             {
-                std::cout << "Processing data from Velocity Sensor." << std::endl;
+                std::cout << "Processing data from Airspeed Sensor." << std::endl;
             }
         };
 
@@ -210,8 +210,8 @@ int main()
                 if (sensorType == "Position") {
                     sensor = new PositionSensor();
                 }
-                else if (sensorType == "Velocity") {
-                    sensor = new VelocitySensor();
+                else if (sensorType == "Airspeed") {
+                    sensor = new AirspeedSensor();
                 }
                 else if (sensorType == "Altitude") {
                     sensor = new AltitudeSensor();
@@ -262,8 +262,8 @@ int main()
                     if (dynamic_cast<PositionSensor*>(sensor)) {
                         SensorFactory::deleteSensor(sensor, "Position");
                     }
-                    else if (dynamic_cast<VelocitySensor*>(sensor)) {
-                        SensorFactory::deleteSensor(sensor, "Velocity");
+                    else if (dynamic_cast<AirspeedSensor*>(sensor)) {
+                        SensorFactory::deleteSensor(sensor, "Airspeed");
                     }
                     else if (dynamic_cast<AltitudeSensor*>(sensor)) {
                         SensorFactory::deleteSensor(sensor, "Altitude");
@@ -280,7 +280,7 @@ int main()
 
         // Add sensors
         ctrlSys.addSensor(SensorFactory::createSensor("Position"));
-        ctrlSys.addSensor(SensorFactory::createSensor("Velocity"));
+        ctrlSys.addSensor(SensorFactory::createSensor("Airspeed"));
         ctrlSys.addSensor(SensorFactory::createSensor("Altitude"));
 
         // Monitor and adjust
