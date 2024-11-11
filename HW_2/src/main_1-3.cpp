@@ -1,3 +1,9 @@
+/*
+AERSP 424 HW 2: Questions 1 - 3
+Authors: Conor & Gabrielle Dowdell
+
+*/
+
 #include <iostream>
 #include <iomanip>
 #include <vector>
@@ -9,10 +15,6 @@
 #include <cmath>
 #include <memory>
 #include <utility>
-
-// Conor Dowdell
-// AERSP 424 HW 2
-// Questions 1 - 3
 
 
 // Functions:
