@@ -1,0 +1,36 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\src\main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\src\question123.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\include\glew.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\include\glfw3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\include\matplot.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\include\question123.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{C8652D01-4E9F-3649-ADC2-8A100918C998}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{2DE5BF1C-01C3-329B-A66D-F8ED98D8D216}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
