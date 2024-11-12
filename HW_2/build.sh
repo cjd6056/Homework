@@ -32,31 +32,10 @@ if [ ! -d "matplotplusplus" ]; then
     mkdir -p build && mkdir -p install && cd build
     cmake -DCMAKE_INSTALL_PREFIX=${project_root_dir}/third_party/matplotplusplus/install -DCMAKE_BUILD_TYPE=Release ..
     cmake --build . -j 4
+    cmake --build . --config debug
+    cmake --build . --config release
     cmake --install .
 fi
-
-cd ${project_root_dir}/third_party
-if [ ! -d "glew" ]; then
-    git clone https://github.com/Perlmint/glew-cmake.git glew
-    cd ${project_root_dir}/third_party/glew
-    rm -rf build install
-    mkdir -p build && mkdir -p install && cd build
-    cmake -DCMAKE_INSTALL_PREFIX=${project_root_dir}/third_party/glew/install -DCMAKE_BUILD_TYPE=Release ..
-    cmake --build . -j 4
-    cmake --install .
-fi
-
-cd ${project_root_dir}/third_party
-if [ ! -d "glfw" ]; then
-    git clone https://github.com/glfw/glfw.git glfw
-    cd ${project_root_dir}/third_party/glfw
-    rm -rf build install
-    mkdir -p build && mkdir -p install && cd build
-    cmake -DCMAKE_INSTALL_PREFIX=${project_root_dir}/third_party/glfw/install -DCMAKE_BUILD_TYPE=Release ..
-    cmake --build . -j 4
-    cmake --install .
-fi
-
 
 # compile the rest of the application
 cd ${project_root_dir}
@@ -64,7 +43,6 @@ cd ${project_root_dir}
 # remove the build directory that has the current code in it
 echo "deleting the BUILD directory"
 rm -rf ${project_root_dir}/build
-rm -rf ${project_root_dir}/install
 
 echo "make a new BUILD directory to start the compiling process"
 mkdir -p ${project_root_dir}/build
@@ -75,8 +53,7 @@ cmake ..
 
 echo "convert this to an executable application -- let's go!!"
 cmake --build . -j 4
-cmake --install .
-cpack
+cmake --build . --target install --config debug
 cd ${project_root_dir}
 echo "declare success -- hooray!"
 
@@ -84,6 +61,6 @@ echo "running the executable with some default parameters"
 echo "./build/homework02 -c config.inp > results.txt 2>&1"
 echo "  the 2>&1 redirects the stderr to a 1 so we don't see the gnuplot problems"
 mkdir -p ${project_root_dir}/results
-./build/homework02 -c config.inp > results/results.txt 2>&1
+./build/debug/homework02 -c config.inp > results/results.txt 2>&1
 
 echo "Check the 'results.txt' for helpful debugging information"

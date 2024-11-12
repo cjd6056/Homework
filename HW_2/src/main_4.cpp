@@ -1,12 +1,20 @@
 /*
 AESP 424 HW 2, Question 4
 Authors: Conor and Gabrielle Dowdell
+
+Part 01:
+Write a C++ program to plot a 2D graph (or 3D if feeling frisky) of the 
+equation using any graphic library of your choice. You can pick any parameter for the 𝑥- and the 𝑦
+axis and initiate other parameters with a realistic value.
+
+Part 02: 
+Read from a CSV file a table of data with headers “time,x,y”. Create a 2D graph of the resulting data.
 */
 
 #include <matplot/matplot.h>
 #include <vector>
 
-int main() 
+int main2() 
 
 {
     using namespace matplot;
@@ -20,7 +28,8 @@ int main()
     std::vector<double> velocities;
     std::vector<double> reynolds_numbers;
 
-    for (double v = 0.1; v <= 100.0; v += 0.5) {
+    for (double v = 0.1; v <= 100.0; v += 0.5) 
+    {
         velocities.push_back(v);
         double reynolds_number = (density * v * length) / viscosity;
         reynolds_numbers.push_back(reynolds_number);

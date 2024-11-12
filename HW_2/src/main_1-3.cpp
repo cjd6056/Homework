@@ -137,7 +137,7 @@ void atc() // Air traffic control function
     std::cout << "Duration: " << duration.count() << " seconds." << std::endl;
 }
 
-int main()
+int main1()
 {
     // Question 1
     {

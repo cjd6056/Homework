@@ -1,3 +1,0 @@
-"C:\Program Files\CMake\bin\cmake.exe" -E rm -f CMakeFiles\AERSP424_HW2.dir/objects.a
-C:\msys64\ucrt64\bin\ar.exe qc CMakeFiles\AERSP424_HW2.dir/objects.a @CMakeFiles\AERSP424_HW2.dir\objects1.rsp
-C:\msys64\ucrt64\bin\g++.exe -g -Wl,--whole-archive CMakeFiles\AERSP424_HW2.dir/objects.a -Wl,--no-whole-archive -o AERSP424_HW2.exe -Wl,--out-implib,libAERSP424_HW2.dll.a -Wl,--major-image-version,0,--minor-image-version,0 @CMakeFiles\AERSP424_HW2.dir\linkLibs.rsp
