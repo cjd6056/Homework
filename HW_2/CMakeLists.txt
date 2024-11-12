@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.22) # Specify CMake version.
-project(matplot++
+project(AERSP_424_HW_2
     DESCRIPTION "424 Homework 2 MatPlot++ Integrated"
     VERSION 0.0.1) # A project name. This can be anything.
 set(CMAKE_CXX_STANDARD 17) # Specify C++ version.

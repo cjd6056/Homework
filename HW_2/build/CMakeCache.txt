@@ -14,6 +14,15 @@
 # EXTERNAL cache entries
 ########################
 
+//Value Computed by CMake
+AERSP_424_HW_2_BINARY_DIR:STATIC=C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/build
+
+//Value Computed by CMake
+AERSP_424_HW_2_IS_TOP_LEVEL:STATIC=ON
+
+//Value Computed by CMake
+AERSP_424_HW_2_SOURCE_DIR:STATIC=C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2
+
 //Path to a program.
 CMAKE_AR:FILEPATH=C:/Program Files (x86)/Microsoft Visual Studio/2022/BuildTools/VC/Tools/MSVC/14.41.34120/bin/Hostx64/x64/lib.exe
 
@@ -116,7 +125,7 @@ CMAKE_INSTALL_MANDIR:PATH=
 CMAKE_INSTALL_OLDINCLUDEDIR:PATH=/usr/include
 
 //Install path prefix, prepended onto install directories.
-CMAKE_INSTALL_PREFIX:PATH=C:/Program Files/homework02
+CMAKE_INSTALL_PREFIX:PATH=C:/Program Files/AERSP_424_HW_2
 
 //Run-time variable data (LOCALSTATEDIR/run)
 CMAKE_INSTALL_RUNSTATEDIR:PATH=
@@ -163,7 +172,7 @@ CMAKE_PROJECT_DESCRIPTION:STATIC=424 Homework 2 MatPlot++ Integrated
 CMAKE_PROJECT_HOMEPAGE_URL:STATIC=
 
 //Value Computed by CMake
-CMAKE_PROJECT_NAME:STATIC=matplot++
+CMAKE_PROJECT_NAME:STATIC=AERSP_424_HW_2
 
 //Value Computed by CMake
 CMAKE_PROJECT_VERSION:STATIC=0.0.1
@@ -253,24 +262,6 @@ CMAKE_VERBOSE_MAKEFILE:BOOL=FALSE
 
 //The directory containing a CMake configuration file for Matplot++.
 Matplot++_DIR:PATH=C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/third_party/matplotplusplus/install/lib/cmake/Matplot++
-
-//Value Computed by CMake
-homework02_BINARY_DIR:STATIC=C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/build
-
-//Value Computed by CMake
-homework02_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-homework02_SOURCE_DIR:STATIC=C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2
-
-//Value Computed by CMake
-matplot++_BINARY_DIR:STATIC=C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2/build
-
-//Value Computed by CMake
-matplot++_IS_TOP_LEVEL:STATIC=ON
-
-//Value Computed by CMake
-matplot++_SOURCE_DIR:STATIC=C:/Users/conor.CONORS-XPS-15/OneDrive/Desktop/Repos/Homework/HW_2
 
 
 ########################
@@ -436,5 +427,5 @@ CMAKE_STATIC_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_VERBOSE_MAKEFILE
 CMAKE_VERBOSE_MAKEFILE-ADVANCED:INTERNAL=1
 //CMAKE_INSTALL_PREFIX during last run
-_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files/homework02
+_GNUInstallDirs_LAST_CMAKE_INSTALL_PREFIX:INTERNAL=C:/Program Files/AERSP_424_HW_2
 

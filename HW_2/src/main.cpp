@@ -1,5 +1,5 @@
 /*
-AERSP 424 HW 2: Questions 1 - 3
+AERSP 424 HW 2: Questions 1 - 4
 Authors: Conor & Gabrielle Dowdell, Shanon Hyde
 
 */
