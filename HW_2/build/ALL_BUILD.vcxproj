@@ -173,9 +173,9 @@ if %errorlevel% neq 0 goto :VCEnd</Command>
       <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </ProjectReference>
-    <ProjectReference Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\build\homework02.vcxproj">
-      <Project>{B87DC2C3-49A1-309D-9113-CF7A1001EFD6}</Project>
-      <Name>homework02</Name>
+    <ProjectReference Include="C:\Users\conor.CONORS-XPS-15\OneDrive\Desktop\Repos\Homework\HW_2\build\matplot++.vcxproj">
+      <Project>{7DCA2EDF-8AC0-3A07-98D0-44CF267B367D}</Project>
+      <Name>matplot++</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,9 +1,6 @@
 
 
 #include <matplot/matplot.h>
-// #include <math.h>
-// #include <cmath>
-// #include <corecrt.h>
 #include <vector>
 #include "question123.h"
 #include <iostream>
@@ -13,11 +10,11 @@ using  std::cin, std::cout, std::endl;
 int main() 
 {
     
-    q123::question123();
+    //q123::question123();
 
 
        // Define constants
-    const double M_PI = 3.1415926535;       // Pi constant
+ //   const double M_PI = 3.1415926535;       // Pi constant
     const double stall_angle = 15.0;        // Stall angle in degrees
     const double max_CL = 1.2;              // Maximum coefficient of lift
     const double curviness_factor = M_PI / 30; // Factor for adjusting lift curve shape
@@ -32,10 +29,12 @@ int main()
         alpha.push_back(i);
 
         // Nonlinear relationship for C_L vs alpha (robust and realistic)
-        if (i <= stall_angle) {
+        if (i <= stall_angle) 
+        {
             // Smooth, curvy increase in C_L up to stall using a sine function
             C_L.push_back(max_CL * std::sin(i * curviness_factor));
-        } else {
+        } else 
+        {
             // Smooth stall effect using an exponential decay to represent the drop in lift
             double stall_effect = max_CL * std::exp(-stall_dropoff_rate * (i - stall_angle));
             C_L.push_back(stall_effect);
@@ -52,6 +51,59 @@ int main()
 
     // Save the plot as a JPEG image
     matplot::save("CL_vs_AoA_new", "jpeg");
+
+
+std::cout << "------ Question 4, Part 02 ------ \n" << std::endl;
+
+
+// CSV file path
+    std::string csv_path = "C:\\Users\\conor.CONORS-XPS-15\\OneDrive\\Desktop\\Repos\\Homework\\HW_2\\include\\AERP_424_HW_2_Q4_Data.csv";
+
+    // Read data from CSV file (time,x,y)
+    std::ifstream file(csv_path);
+    std::string line;
+    std::vector<double> time, x, y;
+
+    if (file.is_open()) 
+    {
+        // Skip the header line
+        std::getline(file, line);
+
+        // Read each line of the CSV
+        while (std::getline(file, line)) {
+            std::stringstream ss(line);
+            std::string value;
+            std::vector<double> row;
+
+            // Read comma-separated values in each line
+            while (std::getline(ss, value, ',')) {
+                row.push_back(std::stod(value));
+            }
+
+            if (row.size() == 3) {
+                time.push_back(row[0]);
+                x.push_back(row[1]);
+                y.push_back(row[2]);
+            }
+        }
+        file.close();
+        std::cerr << "File was accessed!" << std::endl;
+    } 
+    
+    else 
+    {
+        std::cerr << "Unable to open file" << std::endl;
+        return 1;
+    }
+
+    // Plot x vs y from CSV data
+    auto fig2 = matplot::figure();
+    matplot::plot(x, y);
+    matplot::title("2D Plot of x vs y from CSV Data");
+    matplot::xlabel("x");
+    matplot::ylabel("y");
+    matplot::grid(true);
+    matplot::save("xy_from_csv", "jpeg");
 
     return 0;
 }

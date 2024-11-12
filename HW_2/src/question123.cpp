@@ -77,7 +77,6 @@ namespace q123 {
 
 
     // Question 3 Functions
-    // Question 3 Functions
     const int MAX_AIRCRAFT = 3;
     const int TOTAL_AIRCRAFT = 10;
 

@@ -1,16 +1,13 @@
 cmake_minimum_required(VERSION 3.22) # Specify CMake version.
-project(homework02
-    DESCRIPTION "AERSP_424_HW_2"
+project(matplot++
+    DESCRIPTION "424 Homework 2 MatPlot++ Integrated"
     VERSION 0.0.1) # A project name. This can be anything.
 set(CMAKE_CXX_STANDARD 17) # Specify C++ version.
 set(CMAKE_MSVC_RUNTIME_LIBRARY "MultiThreadedDLL")
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/output")
-
+add_compile_definitions(_USE_MATH_DEFINES)
 
 # set(CMAKE_CXX_FLAGS "${CMAKE_C_FLAGS} -Wall -Wpedantic -Wextra")
 message(STATUS "CMakeLists.txt is at ${PROJECT_SOURCE_DIR}") # To print something.
-
-# Dependencies
 list(APPEND CMAKE_PREFIX_PATH "${PROJECT_SOURCE_DIR}/third_party/matplotplusplus/install")
 find_package(Matplot++ REQUIRED)
 include(GNUInstallDirs)
@@ -26,6 +23,7 @@ file(GLOB all_SRCS
     "${PROJECT_SOURCE_DIR}/src/*.cpp"
     "${PROJECT_SOURCE_DIR}/src/*.c"
 )
+
 # Create a binary file. 
 # The first argument is the name of the binary file.
 # It can be anything. In this case, it is set to be the project name.
