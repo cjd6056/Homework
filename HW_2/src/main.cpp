@@ -1,15 +1,14 @@
 /*
 AERSP 424 HW 2: Questions 1 - 4
 Authors: Conor & Gabrielle Dowdell, Shanon Hyde
-<<<<<<< HEAD
+
 Sources: Lots of help from TA Li, TA Luis, and Dr. Miller
 Also see:
 - https://github.com/alandefreitas/matplotplusplus/tree/master/source/matplot
 - https://www.geeksforgeeks.org/csv-file-management-using-c/ (Reading CSV file)
 - Lecture notes
 - Some AI here and there but mostly for troubleshooting unknown errors
-=======
->>>>>>> main
+
 
 */
 
