@@ -1,6 +1,12 @@
 /*
 AERSP 424 HW 2: Questions 1 - 4
 Authors: Conor & Gabrielle Dowdell, Shanon Hyde
+Sources: TA assistance from TA Li and TA Luis, help from Dr. Miller
+- https://github.com/alandefreitas/matplotplusplus/tree/master/source/matplot
+- https://www.geeksforgeeks.org/csv-file-management-using-c/
+- https://www.youtube.com/watch?v=Hzg3kCHJcxI&list=PLZPZq0r_RZOOzY_vR4zJM32SqsSInGMwe&index=49
+- https://www.youtube.com/watch?v=_8H2n0nDfd4&list=PLZPZq0r_RZOMHoXIcxze_lP97j2Ase2on&index=56
+- Chat GPT was used as minimal as possible and was primarily for debugging issues
 
 */
 
