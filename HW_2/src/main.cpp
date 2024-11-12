@@ -1,4 +1,8 @@
+/*
+AERSP 424 HW 2: Questions 1 - 3
+Authors: Conor & Gabrielle Dowdell, Shanon Hyde
 
+*/
 
 #include <matplot/matplot.h>
 #include <vector>
@@ -10,8 +14,9 @@ using  std::cin, std::cout, std::endl;
 int main() 
 {
     
-    //q123::question123();
+    q123::question123(); //function that runs questions 1 thru 3
 
+std::cout << "------ Question 4, Part 01 ------ \n" << std::endl;
 
        // Define constants
  //   const double M_PI = 3.1415926535;       // Pi constant
@@ -25,7 +30,8 @@ int main()
     std::vector<double> C_L;   // Coefficient of lift
 
     // Generate alpha values from -10 to 20 degrees and corresponding C_L values
-    for (double i = -10; i <= 20; i += 1) {
+    for (double i = -10; i <= 20; i += 1) 
+    {
         alpha.push_back(i);
 
         // Nonlinear relationship for C_L vs alpha (robust and realistic)
@@ -51,6 +57,8 @@ int main()
 
     // Save the plot as a JPEG image
     matplot::save("CL_vs_AoA_new", "jpeg");
+    std::cout << "Check for figure in output folder\n" << std::endl;
+
 
 
 std::cout << "------ Question 4, Part 02 ------ \n" << std::endl;
@@ -87,12 +95,12 @@ std::cout << "------ Question 4, Part 02 ------ \n" << std::endl;
             }
         }
         file.close();
-        std::cerr << "File was accessed!" << std::endl;
+        std::cerr << "CSV File was accessed!\n" << std::endl;
     } 
     
     else 
     {
-        std::cerr << "Unable to open file" << std::endl;
+        std::cerr << "Unable to open .csv" << std::endl;
         return 1;
     }
 
@@ -104,6 +112,9 @@ std::cout << "------ Question 4, Part 02 ------ \n" << std::endl;
     matplot::ylabel("y");
     matplot::grid(true);
     matplot::save("xy_from_csv", "jpeg");
+    
+    std::cout << "------ End of Homework 2 :) ------ \n" << std::endl;
+
 
     return 0;
 }

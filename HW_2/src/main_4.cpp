@@ -1,6 +1,6 @@
 /*
 AESP 424 HW 2, Question 4
-Authors: Conor and Gabrielle Dowdell
+Authors: Conor & Gabrielle Dowdell, Shanon Hyde
 
 Part 01:
 Write a C++ program to plot a 2D graph (or 3D if feeling frisky) of the 
