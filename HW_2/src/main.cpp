@@ -1,6 +1,6 @@
 /*
 AERSP 424 HW 2: Questions 1 - 4
-Authors: Conor & Gabrielle Dowdell, Shanon Hyde
+Authors: Conor & Gabrielle Dowdell, Shanon Hyde, Chukwu Agbo
 
 Sources: Lots of help from TA Li, TA Luis, and Dr. Miller
 Also see:
