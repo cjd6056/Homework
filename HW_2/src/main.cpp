@@ -1,6 +1,6 @@
 /*
 AERSP 424 HW 2: Questions 1 - 4
-Authors: Conor & Gabrielle Dowdell, Shanon Hyde
+Authors: Conor & Gabrielle Dowdell, Shanon Hyde, Chukwu Agbo
 Sources: TA assistance from TA Li and TA Luis, help from Dr. Miller
 - https://github.com/alandefreitas/matplotplusplus/tree/master/source/matplot
 - https://www.geeksforgeeks.org/csv-file-management-using-c/
