@@ -1,6 +1,6 @@
 /*
 AERSP 424 HW 2: Questions 1 - 3
-Authors: Conor & Gabrielle Dowdell
+Authors: Conor & Gabrielle Dowdell, Shanon Hyde, Chukwu Agbo
 
 */
 #include "question123.h"
